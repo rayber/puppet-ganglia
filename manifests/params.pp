@@ -26,18 +26,7 @@ class ganglia::params {
   case $::osfamily {
     redhat: {
       case $::lsbmajdistrelease {
-        # the epel packages change uid/gids + install paths between 5 & 6
-        5: {
-          $gmond_service_config = '/etc/gmond.conf'
-          $gmond_service_erb    = 'ganglia/gmond.conf.el5.erb'
-
-          $gmetad_service_config = '/etc/gmetad.conf'
-          # it looks like it's safe to use the same template for el5.x & el6.x
-          $gmetad_service_erb    = 'ganglia/gmetad.conf.el6.erb'
-        }
-        # fedora is also part of $::osfamily = redhat so we shouldn't default
-        # to failing on el7.x +
-        6, default: {
+        5,6, default: {
           $gmond_service_config = '/etc/ganglia/gmond.conf'
           $gmond_service_erb    = 'ganglia/gmond.conf.el6.erb'
 
