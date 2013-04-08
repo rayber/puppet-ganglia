@@ -6,12 +6,11 @@ Description
 
 This puppet module will install and configure the
 [ganglia](http://ganglia.sourceforge.net/) gmond & gmetad daemons + web front
-end.
+end. 
 
 It has been tested on:
 
- - el5.x
- - el6.x
+ - el5.x with custom rpm installation of ganglia-gmond not provided by EPEL an which is custom built.
 
 Examples
 --------
