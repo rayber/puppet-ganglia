@@ -11,7 +11,10 @@ globals {
   host_dmax = 86400 /*secs */ 
   cleanup_threshold = 300 /*secs */ 
   gexec = no             
-} 
+<% if @override_hostname -%>
+  override_hostname = <%= @fqdn %>
+<% end -%>
+}
 
 /* If a cluster attribute is specified, then all gmond hosts are wrapped inside 
  * of a <CLUSTER> tag.  If you do not specify a cluster tag, then all <HOSTS> will 

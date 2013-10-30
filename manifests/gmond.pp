@@ -21,6 +21,9 @@
 # [*host_location*]
 #   string - defaults to "unspecified"
 #
+# [*override_hostname*]
+#  string - defaults to "false"
+#
 # [*udp_send_channel*]
 #   array of hashes.  Valid keys are:
 #
@@ -72,6 +75,7 @@
 #      cluster_latlong    => 'N32.2332147 W110.9481163',
 #      cluster_url        => 'www.example.org',
 #      host_location      => 'example computer room',
+#      override_hostname  => 'true',
 #      udp_recv_channel   => $udp_recv_channel,
 #      udp_send_channel   => $udp_send_channel,
 #      tcp_accept_channel => $tcp_accept_channel,
@@ -93,6 +97,7 @@ class ganglia::gmond (
   $cluster_latlong    = 'unspecified',
   $cluster_url        = 'unspecified',
   $host_location      = 'unspecified',
+  $override_hostname  = false,
   $udp_send_channel   = [
     { mcast_join => '239.2.11.71', port => 8649, ttl => 1 }
   ],
